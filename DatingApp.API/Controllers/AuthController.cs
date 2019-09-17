@@ -26,8 +26,6 @@ namespace DatingApp.API.Controllers
         [HttpPost("register")]
         public async Task<IActionResult> Register(UserForRegisterDto userForRegister)
         {
-            // validare request
-
             userForRegister.Username = userForRegister.Username.ToLower();
 
             if (await _repo.UserExists(userForRegister.Username))
@@ -40,7 +38,7 @@ namespace DatingApp.API.Controllers
                 Username = userForRegister.Username,
             };
 
-            var createdUser = _repo.Register(userToCreate, userForRegister.Password);
+            var createdUser = await _repo.Register(userToCreate, userForRegister.Password);
 
             return StatusCode(201);
         }
