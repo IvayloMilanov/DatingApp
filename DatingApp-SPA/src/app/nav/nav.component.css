@@ -1,0 +1,12 @@
+.dropdown-toggle {
+    cursor: pointer;
+}
+
+.dropdown-item {
+    cursor: pointer;
+}
+
+.dropdown-menu {
+    margin-top: 20px;
+    margin-right: 5px;
+}
