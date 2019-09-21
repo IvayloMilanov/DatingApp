@@ -40,4 +40,12 @@ export class AuthService {
       return decodedToken.unique_name;
     }
   }
+
+  getDecodedToken() {
+    const token = localStorage.getItem('token');
+    if (this.loggedIn()) {
+      const decodedToken = this.jwtHelper.decodeToken(token);
+      return decodedToken;
+    }
+  }
 }
