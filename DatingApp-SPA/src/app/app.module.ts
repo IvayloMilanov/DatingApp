@@ -32,6 +32,7 @@ import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
 import {TimeAgoPipe} from 'time-ago-pipe';
 import { PaginationModule } from 'ngx-bootstrap/pagination';
 import { ButtonsModule } from 'ngx-bootstrap/buttons';
+import { ListResolver } from './_resolvers/lists.resolver';
 
 export function tokenGetter() {
    return localStorage.getItem('token');
@@ -88,7 +89,8 @@ export class CustomHammerConfi extends HammerGestureConfig  {
       MemberListResolver,
       { provide: HAMMER_GESTURE_CONFIG, useClass: CustomHammerConfi },
       MemberEditResolver,
-      PreventUnsavedChanges
+      PreventUnsavedChanges,
+      ListResolver
    ],
    bootstrap: [
       AppComponent
